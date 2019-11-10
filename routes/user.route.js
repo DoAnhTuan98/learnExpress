@@ -1,10 +1,8 @@
 var express = require('express')
 var router = express.Router()
-
-var validate = require('../validate/user.validate')
-
 var db = require('../db')
 
+var validate = require('../validate/user.validate')
 var controller = require('../controllers/user.controller')
 
 router.get('/',controller.index);
