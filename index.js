@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser')
 var userRoute = require('./routes/user.route')
 var authRoute = require('./routes/auth.route')
 var authMiddleware = require('./middleware/auth.middleware')
+var products = require('./routes/product.route')
 
 
 app.set('view engine', 'pug')
@@ -27,6 +28,8 @@ app.use(express.static('public'));
 app.use('/users',authMiddleware.requiredAuth,userRoute)
 
 app.use('/auth',authRoute)
+
+app.use('/products',products)
 
 app.listen(port,function(){
     console.log('server listening on port' + port);
