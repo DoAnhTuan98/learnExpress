@@ -3,7 +3,7 @@ const FileSync = require('lowdb/adapters/FileSync')
 adapter = new FileSync('db.json')
 db = low(adapter)
 
-db.defaults({ users: []})
+db.defaults({ users: [], sessions: []})
   .write()
 
 module.exports = db;

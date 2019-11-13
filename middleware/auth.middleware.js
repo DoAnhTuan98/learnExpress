@@ -2,7 +2,7 @@ var db = require('../db')
 
 module.exports.requiredAuth = function(req,res,next) {
 
-    console.log(req.cookies,req.signedCookies);
+    // console.log(req.cookies,req.signedCookies);
     if(!req.signedCookies.userid) {
         res.redirect('/auth/login');
         return;
@@ -10,7 +10,7 @@ module.exports.requiredAuth = function(req,res,next) {
 
     var user = db.get('users').find({id: req.signedCookies.userid}).value();
     if(!user) {
-        res.render('/auth/login');
+        res.redirect('/auth/login');
         return;
     }
 
